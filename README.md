@@ -9,13 +9,13 @@ COCO-CN is a bilingual image description dataset enriching MS-COCO with manually
 | human translation     | :x:     |   :x:  | :white_check_mark: | 
 | machine translation (baidu)  | :white_check_mark: | :white_check_mark: | :white_check_mark: | 
 
-<img src="dataset-snapshot.png" alt="coco-cn annotation examples" style="width: 200px;"/>
+<img src="dataset-snapshot.png" alt="coco-cn annotation examples"  width="400" />
 
-## Data
+## Annotations
 
 * [version 201805](data/coco-cn-version1805.tar.gz): 20,341 images (training / validation / test: 18,341 / 1,000 /1,000), associated with 22,218 ***manually written*** Chinese sentences and 5,000 ***manually translated*** sentences.
 
-## Citations
+## Citation
 
-
+If you use COCO-CN, please cite the following paper:
 * Xirong Li, Xiaoxu Wang, Chaoxi Xu, Weiyu Lan, Qijie Wei, Gang Yang, Jieping Xu, [COCO-CN for Cross-Lingual Image Tagging, Captioning and Retrieval](https://arxiv.org/abs/1805.08661), CoRR abs/1805.08661, 2018

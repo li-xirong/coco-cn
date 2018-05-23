@@ -1,4 +1,4 @@
-# coco-cn
+# COCO-CN
 
 COCO-CN is a bilingual image description dataset enriching MS-COCO with manually written Chinese sentences and tags. The new dataset can be used for multiple tasks including image tagging, captioning and retrieval, all in a cross-lingual setting. 
 
@@ -10,8 +10,11 @@ COCO-CN is a bilingual image description dataset enriching MS-COCO with manually
 | machine translation (baidu)  | :white_check_mark: | :white_check_mark: | :white_check_mark: | 
 
 
+![](./dataset-snapshot.png =250x)
+
 ## Data
 
+* [version 201805](data/coco-cn-version1805.tar.gz): 20,341 images (training / validation / test: 18,341 / 1,000 /1,000), associated with 22,218 ***manually written*** Chinese sentences and 5,000 ***manually translated*** sentences.
 
 ## Citations
 

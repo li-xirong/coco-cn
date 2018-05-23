@@ -9,8 +9,7 @@ COCO-CN is a bilingual image description dataset enriching MS-COCO with manually
 | human translation     | :x:     |   :x:  | :white_check_mark: | 
 | machine translation (baidu)  | :white_check_mark: | :white_check_mark: | :white_check_mark: | 
 
-
-![](./dataset-snapshot.png =250x)
+<img src="dataset-snapshot.png" alt="coco-cn annotation examples" style="width: 200px;"/>
 
 ## Data
 

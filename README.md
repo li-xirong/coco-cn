@@ -14,6 +14,7 @@ COCO-CN is a bilingual image description dataset enriching MS-COCO with manually
 ## Progress
 
 * version 201805: 20,341 images (training / validation / test: 18,341 / 1,000 /1,000), associated with 22,218 ***manually written*** Chinese sentences and 5,000 ***manually translated*** sentences. Data available upon request (xirong@ruc.edu.cn)
+* [Precomputed image features](/data): ResNext-101
 
 ## Citation
 

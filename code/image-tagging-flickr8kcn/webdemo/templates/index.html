@@ -1,0 +1,92 @@
+$def with (resp)
+
+$def result_to_table(resp, method, row_num=10):
+    $ urlpath = 'queryimages' if 'random' == method else 'images'
+    <table style="margin:auto; width:80%;" cellspacing="1px" cellpadding="3px">
+    $ reslist = resp['content']
+    $ col_num = 5
+    $ index = 0
+    $for i in range(row_num):
+        <tr>
+        $for j in range(col_num):
+            $ index = i*col_num + j
+            $if index>=len(reslist): 
+                $break
+            $ imageid = reslist[index]['id']
+            $ url = '/%s/%s.jpg' % (urlpath, imageid)
+            $ color = reslist[index]['color']
+            <td style="vertical-align:top;"><img src="$url" width=200 height=200 style="border:1px solid $color"></img>
+            <br> $imageid
+            <br><a href="/?query=$imageid">similar images</a></br>  
+            </td>
+            <td style="vertical-align:top; text-align:left;">
+            $for tag in reslist[index]['tags'][:5]:
+                <br>$tag
+            </td>
+        </tr>
+    </table>
+
+
+    
+$def result_to_html(resp):
+    $if 0 == resp['status']:
+        $:result_to_table(resp, 'random')
+    $else:
+        $ queryid = resp['query']
+        $ url = '/queryimages/%s.jpg' % queryid
+        $ hits = len(resp['content'])
+        $ pred = resp['pred']
+        <table style="margin:auto;" cellspacing="1px" cellpadding="3px">
+        <tr><td>
+        <div style="margin:auto; text-align:left;"><img src="$url" width=200 height=200 style="border:1px solid white"></img><br>$queryid (max hits: $hits)</div>
+        </td>
+        <td style="text-align:left;">
+            $for rank,(tag,score) in enumerate(pred):
+                $ classid = 'div%d' % (rank%2)
+                <div class="$classid">$tag $score</div>
+        </td>
+        </tr>
+        </table>
+
+        $:result_to_table(resp, 'knn')
+    
+    
+$def search_form(resp):
+    <form id="search_form"  method="post" action="search">
+    $if 0 == resp['status']:
+        <p><input placeholder="imageid"  type="text" id="input_query" name="query" class="focus" /> <input id="go" name="go" type="submit" value="Go!" /></p>
+    $else:
+        <p><input value="$resp['query']"  type="text" id="input_query" name="query" class="focus" /> <input id="go" name="go" type="submit" value="Go!" /></p>
+    </form>
+        
+
+<html>
+<head>
+<link rel="stylesheet" href="/static/basic.css" type="text/css" media="screen" charset="utf-8"/>
+<script type="text/javascript" src="/static/jquery.js"></script>
+
+<script type="text/javascript">
+
+jQuery(document).ready(function(){
+    jQuery('#search_form').submit(function(e){
+        var input = jQuery.trim( jQuery('#input_query').val() );
+        if (!input) {
+            e.preventDefault();
+        }
+        else {
+            jQuery('#input_query').val(input)
+        }
+    });
+});
+
+</script>
+    
+</head>
+
+<body>
+
+
+$:search_form(resp)
+$:result_to_html(resp)
+
+</body>

@@ -1,0 +1,11 @@
+{
+ "imagedata_path": "/home/xirong/VisualSearch2",
+ "rootpath": "/home/xirong/VisualSearch2",
+ "max_hits": 50,
+ "trainCollection": "flickr8kcn",
+ "testCollection": "flickr8kcn",
+ "feature": "pyresnext-101_rbps13k,flatten0_output,osl2",
+ "distance": "cosine"
+}
+
+

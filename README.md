@@ -17,7 +17,7 @@ COCO-CN is a bilingual image description dataset enriching MS-COCO with manually
 * [Precomputed image features](/data): ResNext-101
 * [COCO-CN-Results-Viewer](https://github.com/evanmiltenburg/COCO-CN-Results-Viewer): A lightweight tool to inspect the results of different image captioning systems on the COCO-CN test set, developed by [Emiel van Miltenburg](https://emielvanmiltenburg.nl/) at the Tilburg University.
 * [NUS-WIDE100](data/nuswide100): An extra test set.
-+ 2018-12-16: Code for [cross-lingual image tagging](code/image-tagging-flickr8kcn) released
++ 2018-12-16: Code for cross-lingual [image tagging](code/image-tagging-flickr8kcn) and [captioning](code/coco-cn_caption) released.
 
 ## Citation
 

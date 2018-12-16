@@ -1,0 +1,22 @@
+#You must ensure nmake.exe, cl.exe, link.exe are in system path.
+#VCVARS32.bat
+#Under dosbox prompt
+#nmake -f Makefile.win
+
+##########################################
+CXX = cl.exe
+CFLAGS = -nologo -O2 -EHsc -I. -D __WIN32__ -D _CRT_SECURE_NO_DEPRECATE
+TARGET = windows
+
+all: libsearch
+
+libsearch: search.cpp search.h search.def
+	$(CXX) $(CFLAGS) -LD search.cpp -Fe$(TARGET)\libsearch -link -DEF:search.def 
+
+
+libbigfile: bigfile.cpp bigfile.h bigfile.def
+	$(CXX) $(CFLAGS) -LD bigfile.cpp -Fe$(TARGET)\libbigfile -link -DEF:bigfile.def 
+
+clean:
+	-erase /Q *.obj $(TARGET)\.
+

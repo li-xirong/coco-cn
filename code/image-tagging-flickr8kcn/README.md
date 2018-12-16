@@ -3,7 +3,7 @@
 
 This package implements the following methods for training image tagging models that predict Chinese tags:
 
-1. *Monolingual MLP*, which is trained using Chinese annotations of Flickr8k-CN.
+1. *Monolingual MLP*, which is trained using Chinese annotations of [Flickr8k-CN](https://github.com/li-xirong/flickr8kcn).
 2. *Multi-task MLP*, which is trained using bilingual (English-Chinese) annotations of Flickr8k-CN, where the English and Chinese losses are equally combined and minimized during training.
 3. *Cascading MLP*, which is first trained on English annotations of Flickr30k to obtain semantic-enhanced image features and then trained using Chinese annotations of Flickr8k-CN.
 
@@ -63,7 +63,7 @@ cd tf_tagging
 cd ..
 ```
 
-### Performance on flickr8kcntest
+### Performance on the Flickr8k-CN test set (flickr8kcntest)
 
 The metrics are Precision, Recall and F-measure at top 5. 
 Each metric is computed per image and averaged over all test images.
@@ -74,3 +74,19 @@ Each metric is computed per image and averaged over all test images.
 | Multi-task MLP   | 0.364 | 0.562 | 0.421 | 
 | Cascading MLP    | 0.388 | 0.597 | 0.448 |
 
+### Performance on the COCO-CN test set
+
+When trained on the COCO-CN and COCO-MT, the performance is as follows:
+
+| Model | Precision | Recall | F-measure |
+|:--- | ---:| ---:| ---:|
+| Monolingual  MLP (COCO-MT)  | 0.432 | 0.525 | 0.456 |
+| Monolingual  MLP (COCO-CN)  | 0.477 | 0.576 | 0.503 |
+| Multi-task MLP   | 0.482 | 0.583 | 0.508 | 
+| Cascading MLP    | 0.491 | 0.594 | 0.517 |
+
+## Developers
+
++ Xiaoxu Wang
++ Chaoxi Xu
++ Xirong Li

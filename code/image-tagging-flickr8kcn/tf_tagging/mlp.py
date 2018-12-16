@@ -109,7 +109,7 @@ class MLP(object):
           # logistic loss function refers to CVPR 2016 paper What Value Do Explicit High Level Concepts Have in Vision to Language Problems
           with tf.name_scope('logistic'):
             self._loss = tf.reduce_mean(tf.reduce_sum(tf.log(1+tf.exp(-y*y_)),1))
-            if en_classes > 0:
+            if aux_classes > 0:
                 self._loss += tf.reduce_mean(tf.reduce_sum(tf.log(1+tf.exp(-y2*y2_)),1))
         
 
@@ -125,7 +125,7 @@ class MLP(object):
         if loss_fun == 'logistic':
           with tf.name_scope('logistic'):
             self._loss = tf.reduce_mean(tf.reduce_sum(tf.log(1+tf.exp(-y*y_)),1))
-            if en_classes > 0:
+            if aux_classes > 0:
                 self._loss += tf.reduce_mean(tf.reduce_sum(tf.log(1+tf.exp(-y2*y2_)),1))
 
 

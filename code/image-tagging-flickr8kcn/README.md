@@ -70,7 +70,7 @@ Each metric is computed per image and averaged over all test images.
 
 | Model | Precision | Recall | F-measure |
 |:--- | ---:| ---:| ---:|
-| Monolingual  MLP | 0.362 | 0.557 | 0.418 |
-| Multi-task MLP   | 0.362 | 0.560 | 0.418 | 
-| Cascading MLP    | 0.381 | 0.587 | 0.440 |
+| Monolingual  MLP | 0.364 | 0.561 | 0.420 |
+| Multi-task MLP   | 0.364 | 0.562 | 0.421 | 
+| Cascading MLP    | 0.388 | 0.597 | 0.448 |
 

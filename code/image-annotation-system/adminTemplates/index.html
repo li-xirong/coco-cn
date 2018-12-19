@@ -1,0 +1,109 @@
+$def with (resp)
+
+$def result_to_table(resp):
+    $ data = resp['data']
+    <div class="row col-lg-offset-1 col-lg-10">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>用户</th>
+                    <th>标注图片数目</th>
+                </tr>
+            </thead>
+            <tbody>
+            $for row in data:
+                $ user_id = row[0]
+                $ img_num = row[1]
+                $ user_name = row[2]
+                <tr>
+                    <td onclick="user(this)" value="$user_id" style="cursor:pointer">$user_name</td>
+                    <td>$img_num</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计算机辅助的图片描述->基于智能推荐的图片描述采集系统</title>
+
+    <!-- Loading Bootstrap -->
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Loading Flat UI -->
+    <link href="static/css/flat-ui.css" rel="stylesheet">
+    <link href="static/history/css/history.css" rel="stylesheet">
+
+    <!-- Loading messenger -->
+    <link href="static/css/messenger.css" rel="stylesheet">
+    <link href="static/css/messenger-theme-future.css" rel="stylesheet">
+
+    <!-- Loading date time picker -->
+    <link href="http://cdn.bootcss.com/twitter-bootstrap/2.2.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://cdn.bootcss.com/twitter-bootstrap/2.2.2/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="http://cdn.bootcss.com/prettify/r224/prettify.css" rel="stylesheet">
+    <link href="static/css/bootstrap-datetimepicker.css" rel="stylesheet">
+    <link href="static/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <style type="text/css">
+        .holderjs-fluid {font-size:16px;font-weight:bold;text-align:center;font-family:sans-serif;border-collapse:collapse;border:0;vertical-align:middle;margin:0}
+
+    </style>
+
+    <!-- Custom styles for this template -->
+    <script type="text/javascript" src="/static/js/jquery.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="static/js/flat-ui.min.js"></script>
+    <script type="text/javascript" src="static/js/bootstrap-datetimepicker.js"></script>
+    <script type="text/javascript" src="static/js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="static/admin/js/admin.js"></script>
+</head>
+
+<body>
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">计算机辅助的图片描述</a>
+        </div>
+        <div>
+            <form class="navbar-form navbar-right" action="/single" method="post" role="search">
+                <div class="form-group">
+                    <input name="image" type="text" class="form-control" style="background:#ffffff" placeholder="输入图片ID">
+                </div>
+                <button type="submit" class="btn btn-default" style="color:#000000">提交</button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+
+<div class="container-fluid" style="padding-top:0px">
+    <div class="row-fluid">
+        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-5"><p style="font-size:15px">开始时间</p></div>
+        <div class="input-append date form_datetime col-lg-3 col-md-3 col-sm-3 col-xs-7" id="start" data-date="2017-02-14T15:25:00Z">
+            <input id="start-time" style="height:30px" size="16" type="text" value="" readonly>
+            <span style="height:30px;width:30px" class="add-on"><i class="icon-remove"></i></span>
+            <span style="height:30px;width:30px" class="add-on"><i class="icon-calendar"></i></span>
+        </div>
+        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-5"><p style="font-size:15px">结束时间</p></div>
+        <div class="input-append date form_datetime col-lg-3 col-md-3 col-sm-3 col-xs-7" id="end" data-date="2017-02-14T15:25:00Z">
+            <input id="end-time" style="height:30px;" size="16" type="text" value="" readonly>
+            <span style="height:30px;width:30px" class="add-on"><i class="icon-remove"></i></span>
+            <span style="height:30px;width:30px" class="add-on"><i class="icon-calendar"></i></span>
+        </div>
+        <button class="btn btn-primary" onclick="searchByTime()">查询</button>
+    </div>
+    $:result_to_table(resp)
+</div>
+</body>
+</html>

@@ -1,0 +1,110 @@
+$def with (resp)
+$ judge = resp['judge']
+
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基于智能推荐的图片描述采集系统</title>
+
+    <!-- Loading Bootstrap -->
+   	<link href="static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Loading Flat UI -->
+    <link href="static/css/flat-ui.css" rel="stylesheet">
+    <link href="static/index/css/login.css" rel="stylesheet">
+
+    <!-- Loading messenger -->
+    <link href="static/css/messenger.css" rel="stylesheet">
+    <link href="static/css/messenger-theme-future.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <script type="text/javascript" src="/static/js/jquery.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="static/js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="static/js/flat-ui.min.js"></script>
+    <script type="text/javascript" src="static/js/messenger.min.js"></script>
+    <script type="text/javascript" src="static/js/messenger-theme-future.js"></script>
+    <script type="text/javascript" src="static/index/js/login.js"></script>
+
+</head>
+
+<body>
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">基于智能推荐的图片描述采集系统</a>
+        </div>
+	<div class="collapse navbar-collapse" id="example-navbar-collapse">
+	    <ul class="nav navbar-nav navbar-right">
+	        <li class="nav-li"><a href="static/introduction/20180302.pdf">标注说明</a></li>
+	    </ul>
+	</div>
+    </div>
+</nav>
+
+<div class="container-fluid" style="padding-top:30px">
+    <div class="row visible-on">
+        <div class="col-xs-12 col-sm-12">
+            <div class="row">
+                <div class="visible-lg visible-md visible-sm col-sm-6 col-sm-offset-1 col-md-6 col-md-offset-1 col-lg-6 col-lg-offset-1">
+                    <div id="myCarousel" class="carousel slide carousel-new">
+                        <!-- 轮播（Carousel）指标 -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#myCarousel" data-slide-to="0"
+                                class="active"></li>
+                            <li data-target="#myCarousel" data-slide-to="1"></li>
+                            <li data-target="#myCarousel" data-slide-to="2"></li>
+                        </ol>
+                        <!-- 轮播（Carousel）项目 -->
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <img src="static/index/image/1.jpg" class="img-responsive" alt="First slide">
+                            </div>
+                            <div class="item">
+                                <img src="static/index/image/2.jpg" class="img-responsive" alt="Second slide">
+                            </div>
+                            <div class="item">
+                                <img src="static/index/image/3.jpg" class="img-responsive" alt="Third slide">
+                            </div>
+                        </div>
+                        <!-- 轮播（Carousel）导航 -->
+                        <a class="carousel-control left" href="#myCarousel"
+                           data-slide="prev">&lsaquo;</a>
+                        <a class="carousel-control right" href="#myCarousel"
+                           data-slide="next">&rsaquo;</a>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                    <form id="login" class="form-horizontal form-signin" action="/"
+                          method="post" value="$judge">
+                        <div class="form-group">
+                            <label class="col-xs-2 control-label">账户</label>
+                            <div class="col-xs-10">
+                                <input id="login-input" name="user_id" type="text" class="form-control"
+                                       placeholder="请输入账号" required="required">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-2 control-label">密码</label>
+                            <div class="col-xs-10">
+                                <input id="login-password" name="password" type="password" class="form-control"
+                                       placeholder="请输入密码" required="required">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-offset-2 col-xs-10">
+                                <button type="submit" class="btn btn-default btn-new">登录</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

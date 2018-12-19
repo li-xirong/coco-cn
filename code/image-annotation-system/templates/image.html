@@ -1,0 +1,124 @@
+$def with (resp)
+$ image = resp['image']
+$ sentence = resp['sentence']
+$ label = resp['label']
+$ image_id = resp['image_id']
+$ s_sen = resp['submitted_sentence'].decode('gbk')
+$ s_label = resp['submitted_label']
+$ number = resp['number']
+$ rank = resp['rank']
+$ is_edit = resp['is_edit']
+$ judge = resp['judge']
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基于智能推荐的图片描述采集系统</title>
+
+    <!-- Loading Bootstrap -->
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Loading Flat UI -->
+    <link href="static/css/flat-ui.css" rel="stylesheet">
+    <link href="static/image/css/image.css" rel="stylesheet">
+
+    <!-- Loading messenger -->
+    <link href="static/css/messenger.css" rel="stylesheet">
+    <link href="static/css/messenger-theme-future.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <script type="text/javascript" src="/static/js/jquery.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="static/js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="static/js/flat-ui.min.js"></script>
+    <script type="text/javascript" src="static/js/messenger.min.js"></script>
+    <script type="text/javascript" src="static/js/messenger-theme-future.js"></script>
+    <script type="text/javascript" src="static/image/js/image.js"></script>
+</head>
+
+<body>
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">基于智能推荐的图片描述采集系统</a>
+        </div>
+        <div class="collapse navbar-collapse" id="example-navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li style="cursor:pointer" class="active nav-li"><a href="history">浏览</a></li>
+                <li class="nav-li"><a href="static/introduction/20180302.pdf">标注说明</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<div id="judge" value="$judge" class="container-fluid" style="padding-top:0px">
+    <div class="row">
+        <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 my-image">
+            <h6 class="col-lg-10 col-md-10 col-sm-12 col-xs-12">已标注图片数目 : $number</h6>
+            <img class="col-lg-11 col-md-11 col-sm-12 col-xs-12" width="400px" height="400px" src="$image" id="image" name="$image_id">
+        </div>
+
+        <div class="container col-lg-7 col-md-7 col-sm-12 col-xs-12">
+            
+            <div class="row">
+                <p class="col-lg-3 col-md-3 col-sm-12 col-xs-12">系统推荐的句子</p>
+                <div multiple id="mult" class="col-lg-6 col-md-6 col-sm-12 col-xs-12" value="$rank"
+                     style="height:100px">
+                    <button id="sen1" type="button" class="btn info btn-block" onclick="change(this)">
+                        $sentence[0]
+                    </button>
+                    <button id="sen2" type="button" class="btn info btn-block" onclick="change(this)">
+                        $sentence[1]
+                    </button>
+                    <button id="sen3" type="button" class="btn info btn-block" onclick="change(this)">
+                        $sentence[2]
+                    </button>
+                    <button id="sen4" type="button" class="btn info btn-block" onclick="change(this)">
+                        $sentence[3]
+                    </button>
+                    <button id="sen5" type="button" class="btn info btn-block" onclick="change(this)">
+                        $sentence[4]
+                    </button>
+                </div>
+            </div>
+            <div class="row" style="margin-top:150px">
+                <div class="row">
+                    <p class="text-left col-lg-10 col-md-10 col-sm-12 col-xs-12" style="font-size:15px">要求能包含图片所呈现的主要对象（subject
+                        可以是人或物）在什么场景（where）做什么事（action）</p>
+                </div>
+                <div class="row">
+                    <textarea class="col-lg-9 col-md-9 col-sm-12 col-xs-12" rows="2" id="for-user" onkeyup="cal_chars()" 
+                              placeholder="请输入能客观描述左侧图片内容的一句话,至少18字">$s_sen</textarea>
+                    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">句子字数: <span id="charnum">0</span></div>
+
+                </div>
+            </div>
+
+            <div class="row" style="margin-top:30px">
+                <div class="row">
+                    <p class="col-lg-3 col-md-3 col-sm-3 col-xs-12">系统推荐的标签</p>
+                    <div id="label" class="col-lg-9 col-md-9 col-sm-9 col-xs-12" value="$label"></div>
+                </div>
+                <div class="row col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                    <div id="s_label" class="row" value="$s_label">
+                        <div class="tagsinput-primary">
+                            <input id="tagsinput" class="tagsinput" data-role="tagsinput" placeholder="请输入能描述图片内容的标签,至少3个" value="$label"/>
+                            <p></p>
+                            <p></p>
+                            <button id="submit" value="$is_edit" class="btn btn-primary col-lg-12 col-md-12 col-sm-12 col-xs-12" type="button"
+                            onclick="submit()">提交
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+.sentence{
+    padding-left: 0px;
+    font-size: 15px
+}
+
+.edit{
+    padding-left:0px;
+    font-size:15px;
+    cursor:pointer
+}
+
+.labels{
+    font-size:10px;
+    margin-right:2px;
+    margin-bottom: 1px;
+}

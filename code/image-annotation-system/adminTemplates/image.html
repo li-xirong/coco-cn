@@ -1,0 +1,113 @@
+$def with (resp)
+$ user = resp['user']
+$ image = resp['image']
+$ sentence = resp['sentence']
+$ label = resp['label']
+$ image_id = resp['image_id']
+$ s_sen = resp['submitted_sentence'].decode('gbk')
+$ s_label = resp['submitted_label']
+$ number = resp['number']
+$ rank = resp['rank']
+$ judge = resp['judge']
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基于智能推荐的图片描述采集系统</title>
+
+    <!-- Loading Bootstrap -->
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Loading Flat UI -->
+    <link href="static/css/flat-ui.css" rel="stylesheet">
+    <link href="static/image/css/image.css" rel="stylesheet">
+
+    <!-- Loading messenger -->
+    <link href="static/css/messenger.css" rel="stylesheet">
+    <link href="static/css/messenger-theme-future.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <script type="text/javascript" src="/static/js/jquery.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="static/js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="static/js/flat-ui.min.js"></script>
+    <script type="text/javascript" src="static/js/messenger.min.js"></script>
+    <script type="text/javascript" src="static/js/messenger-theme-future.js"></script>
+    <script type="text/javascript" src="static/admin/js/image.js"></script>
+</head>
+
+<body>
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">基于智能推荐的图片描述采集系统</a>
+        </div>
+        <div class="collapse navbar-collapse" id="example-navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li style="cursor:pointer" class="active nav-li"><a href="history?user=$user&page=1">浏览</a></li>
+                <li class="nav-li"><a>About Us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<div id="judge" value="$judge" class="container-fluid" style="padding-top:0px">
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 my-image">
+            <h6 class="col-lg-10 col-md-10 col-sm-12 col-xs-12">用户标注图片数目 : $number</h6>
+            <img class="col-lg-10 col-md-10 col-sm-12 col-xs-12" src="$image" id="image" name="$image_id">
+        </div>
+
+        <div class="container col-lg-7 col-lg-offset-1 col-md-7 col-md-offset-1 col-sm-12 col-xs-12">
+            <div class="row">
+                <div class="row">
+                    <p class="col-lg-3 col-md-3 col-sm-3 col-xs-12">系统推荐的标签</p>
+                    <div id="label" class="col-lg-9 col-md-9 col-sm-9 col-xs-12" value="$label"></div>
+                </div>
+                <div class="row col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                    <div id="s_label" class="row" value="$s_label">
+                        <div class="tagsinput-primary">
+                            <input id="tagsinput" class="tagsinput" data-role="tagsinput" disabled="disabled" value="$label"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <p class="col-lg-3 col-md-3 col-sm-12 col-xs-12">系统推荐的句子</p>
+                <div multiple id="mult" class="col-lg-6 col-md-6 col-sm-12 col-xs-12" value="$rank"
+                     style="height:100px">
+                    <button id="sen1" type="button" class="btn info btn-block">
+                        $sentence[0]
+                    </button>
+                    <button id="sen2" type="button" class="btn info btn-block">
+                        $sentence[1]
+                    </button>
+                    <button id="sen3" type="button" class="btn info btn-block">
+                        $sentence[2]
+                    </button>
+                    <button id="sen4" type="button" class="btn info btn-block">
+                        $sentence[3]
+                    </button>
+                    <button id="sen5" type="button" class="btn info btn-block">
+                        $sentence[4]
+                    </button>
+                </div>
+            </div>
+            <div class="row" style="margin-top:150px">
+                <div class="row">
+                    <p>用户提交的句子</p>
+                </div>
+                <div class="row">
+                    <textarea class="col-lg-9 col-md-9 col-sm-12 col-xs-12" rows="2" id="for-user" disabled="disabled">$s_sen</textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

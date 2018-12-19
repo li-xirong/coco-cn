@@ -1,0 +1,19 @@
+#You must ensure nmake.exe, cl.exe, link.exe are in system path.
+#VCVARS32.bat
+#Under dosbox prompt
+#nmake -f Makefile.win
+
+##########################################
+CXX = cl.exe
+CFLAGS = -nologo -O2 -EHsc -IC:\local\boost_1_55_0  -D __WIN32__ -D _CRT_SECURE_NO_DEPRECATE
+TARGET = win64
+
+all: libsearch
+
+libsearch: search.cpp search.h search.def
+	$(CXX) $(CFLAGS) -LD search.cpp -Fe..\lib\$(TARGET)\libsearch -link /LIBPATH:C:\local\boost_1_55_0\lib64-msvc-11.0 -DEF:search.def
+    -erase ..\lib\$(TARGET)\*.exp ..\lib\$(TARGET)\*.lib
+
+clean:
+	-erase /Q *.obj ..\lib\$(TARGET)\.
+

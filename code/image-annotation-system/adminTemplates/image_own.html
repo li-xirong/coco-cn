@@ -1,0 +1,114 @@
+$def with (resp)
+$ sentence = resp['sentence']
+$ label = resp['label']
+$ image_id = resp['image_id']
+$ image_url = resp['image_url']
+
+$def result_to_table(resp):
+    $ data = resp['data']
+    <div class="row col-lg-offset-1 col-lg-10">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>用户</th>
+                    <th>句子</th>
+                    <th>标签</th>
+                </tr>
+            </thead>
+            <tbody>
+            $for row in data:
+                $ user_id = row[0]
+                $ sentence = row[1]
+                $ label = row[2]
+                <tr>
+                    <td>$user_id</td>
+                    <td>$sentence</td>
+                    <td>$label</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基于智能推荐的图片描述采集系统</title>
+
+    <!-- Loading Bootstrap -->
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Loading Flat UI -->
+    <link href="static/css/flat-ui.css" rel="stylesheet">
+    <link href="static/image/css/image.css" rel="stylesheet">
+
+    <!-- Loading messenger -->
+    <link href="static/css/messenger.css" rel="stylesheet">
+    <link href="static/css/messenger-theme-future.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <script type="text/javascript" src="/static/js/jquery.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="static/js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="static/js/flat-ui.min.js"></script>
+    <script type="text/javascript" src="static/js/messenger.min.js"></script>
+    <script type="text/javascript" src="static/js/messenger-theme-future.js"></script>
+    <script type="text/javascript" src="static/admin/js/image_own.js"></script>
+</head>
+
+<body>
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">基于智能推荐的图片描述采集系统</a>
+        </div>
+        <div class="collapse navbar-collapse" id="example-navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="nav-li"><a href="/">Back</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<div id="judge" class="container-fluid" style="padding-top:0px">
+    <div class="row-fluid">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 my-image">
+            <img class="col-lg-10 col-md-10 col-sm-12 col-xs-12" src="$image_url" id="image" name="$image_id">
+            <div class="container col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-top:20px">
+                <div class="row">
+                    <p class="col-lg-3 col-md-3 col-sm-3 col-xs-12">系统推荐的标签</p>
+                    <div id="label" class="col-lg-9 col-md-9 col-sm-12 col-xs-12" value="$label"></div>
+                </div>
+                <div class="row">
+                    <p class="col-lg-3 col-md-3 col-sm-12 col-xs-12">系统推荐的句子</p>
+                    <div multiple id="mult" class="col-lg-7 col-md-7 col-sm-12 col-xs-12" style="height:100px">
+                        <button id="sen1" type="button" class="btn info btn-block">
+                            $sentence[0]
+                        </button>
+                        <button id="sen2" type="button" class="btn info btn-block">
+                            $sentence[1]
+                        </button>
+                        <button id="sen3" type="button" class="btn info btn-block">
+                            $sentence[2]
+                        </button>
+                        <button id="sen4" type="button" class="btn info btn-block">
+                            $sentence[3]
+                        </button>
+                        <button id="sen5" type="button" class="btn info btn-block">
+                            $sentence[4]
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            $:result_to_table(resp)
+        </div>
+    </div>
+</div>
+</body>
+</html>

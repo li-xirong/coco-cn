@@ -1,0 +1,97 @@
+$def with (resp)
+$ page = resp['page']
+$ judge = resp['judge']
+$ current = resp['current']
+
+$def create_labels(labels):
+    <div class="row">
+    $for i in labels:
+        <button class="btn labels">$i</button>
+    </div>
+
+$def result_to_table(resp):
+    $if judge:
+        <div id="show" value="1" class="container">
+            $ data = resp['data']
+            $ length = len(data)
+            $ col_num = 4
+            $ row_num = 1 + len(data) / col_num
+            $for i in range(0, row_num):
+            <div class="row">
+                $for j in range(0, col_num):
+                $ index = i * col_num + j
+                $if index >= length:
+                    $break
+                $ sen = data[index]['submitted_sentence'].decode('gbk')
+                $ url = data[index]['url']
+                $ image_name = url.split('/')[-1]
+                $ id = data[index]['image_id']
+                $ label = data[index]['submitted_label']
+                $ labels = label.split(', ')
+                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-4">
+                    <div class="row" style="margin-top:20px">
+                        <img src="$url" onclick="image($id)" style="height:230px;width:230px;cursor:pointer">
+                    </div>
+                    <div class="row">
+                        <p class="edit" onclick="image($id)">$image_name</p>
+                    </div>
+                    <div class="row">
+                        <div class="row col-lg-10 col-xs-10">
+                            $:create_labels(labels)
+                            <p class="sentence">$sen</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    $else:
+        <div id="show" value="0"></div>
+
+$def create_pagination(page):
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>基于智能推荐的图片描述采集系统</title>
+
+    <!-- Loading Bootstrap -->
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Loading Flat UI -->
+    <link href="static/css/flat-ui.css" rel="stylesheet">
+    <link href="static/history/css/history.css" rel="stylesheet">
+
+    <!-- Loading messenger -->
+    <link href="static/css/messenger.css" rel="stylesheet">
+    <link href="static/css/messenger-theme-future.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <script type="text/javascript" src="/static/js/jquery.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="static/js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="static/js/flat-ui.min.js"></script>
+    <script type="text/javascript" src="static/js/messenger.min.js"></script>
+    <script type="text/javascript" src="static/js/messenger-theme-future.js"></script>
+    <script type="text/javascript" src="static/js/page.js"></script>
+    <script type="text/javascript" src="static/history/js/history.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">基于智能推荐的图片描述采集系统</a>
+        </div>
+        <div class="collapse navbar-collapse" id="example-navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active nav-li"><a href="image">Back</a></li>
+                <li class="nav-li"><a>About Us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div id="page" class="row" style="text-align:center" value="$page" name="$current"></div>
+$:result_to_table(resp)
+</body>
+</html>

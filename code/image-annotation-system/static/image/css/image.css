@@ -1,0 +1,30 @@
+.my-input-btn{
+  font-size: 14px;
+  color: #FFFFFF;
+  background-color: #6495ED;
+}
+
+.info{
+    color: #000000;
+    background-color: #ecf0f1;
+    text-align: left;
+    transition: color 0.2s;
+    -moz-transition: color 0.2s; /* Firefox 4 */
+    -webkit-transition: color 0.2s; /* Safari 和 Chrome */
+    -o-transition: color 0.2s; /* Opera */
+}
+.info:hover{
+    color: #000000;
+}
+
+.add{
+    border: solid;
+    border-width: 2px;
+    border-color: #e74c3c;
+}
+
+.labels{
+    font-size:12px;
+    margin-right:10px;
+    margin-bottom: 5px;
+}

@@ -1,0 +1,7 @@
+LIBRARY libsearch
+EXPORTS
+	load_model	@1
+	free_model	@2
+	get_dim @3
+	get_nr_images	@4
+	search_knn  @5

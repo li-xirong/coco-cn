@@ -23,4 +23,4 @@ COCO-CN is a bilingual image description dataset enriching MS-COCO with manually
 ## Citation
 
 If you find COCO-CN useful, please consider citing the following paper:
-* Xirong Li, Chaoxi Xu, Xiaoxu Wang, Weiyu Lan, Zhengxiong Jia, Gang Yang, Jieping Xu, COCO-CN for Cross-Lingual Image Tagging, Captioning and Retrieval, IEEE Transactions on Multimedia, 2019 (in press)
+* Xirong Li, Chaoxi Xu, Xiaoxu Wang, Weiyu Lan, Zhengxiong Jia, Gang Yang, Jieping Xu, [COCO-CN for Cross-Lingual Image Tagging, Captioning and Retrieval](https://arxiv.org/pdf/1805.08661.pdf), IEEE Transactions on Multimedia, 2019 (in press)

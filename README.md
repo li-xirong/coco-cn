@@ -19,6 +19,7 @@ COCO-CN is a bilingual image description dataset enriching MS-COCO with manually
 * [NUS-WIDE100](data/nuswide100): An extra test set.
 + 2018-12-16: Code for cross-lingual [image tagging](code/image-tagging-flickr8kcn) and [captioning](code/coco-cn_caption) released.
 + 2018-12-20: Code for [cross-lingual image retrieval](code/image-retrieval) and [our image annotation system](code/image-annotation-system) released.
++ 2019-01-13: The COCO-CN paper accepted as a regular paper by the T-MM journal.
 
 ## Citation
 

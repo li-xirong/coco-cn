@@ -82,11 +82,11 @@ evaluation api.
 
 To perform the `Sequential Learning` training scheme with `mscoco-mt` and `mscoco-cn`, put the `merged_vocab.pkl` file into `data/mscoco-mttrain/TextData` and  `data/mscoco-cntrain/TextData` where their original vocab file is replaced.
 
-Then set the `use_merged_vocab` option to 1 in the doit scripts for seqeuntial learning.
+Then set the `use_merged_vocab` option to 1 in the doit scripts for sequential learning.
 
 ### Image Captioning with tags
 
-When performing the `image captioning with tags` training scheme with coco-cn dataset, you need to temporarily set the `fc_feat_size` option in `opts.py` from 2048 to 3167, in order to fit the size of the provided multimodal feature. Then configure the `vf_name` option in the doit scripts to exploit the scheme in your experimentation.
+When performing the `image captioning with tags` training scheme with coco-cn dataset, you need to temporarily set the `fc_feat_size` option in `opts.py` from 2,048 to 3,167, in order to fit the size of the provided multi-modal feature. Then configure the `vf_name` option in the doit scripts to exploit this scheme.
 
 ## Expected performance
 

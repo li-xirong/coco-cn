@@ -13,13 +13,14 @@ COCO-CN is a bilingual image description dataset enriching MS-COCO with manually
 
 ## Progress
 
-* version 201805: 20,341 images (training / validation / test: 18,341 / 1,000 /1,000), associated with 22,218 ***manually written*** Chinese sentences and 5,000 ***manually translated*** sentences. Data is freely available upon request. Please submit your request via [Google Form](https://goo.gl/forms/JMki8iD9OSvUAVWv1).
+* version 201805: 20,341 images (training / validation / test: 18,341 / 1,000 / 1,000), associated with 22,218 ***manually written*** Chinese sentences and 5,000 ***manually translated*** sentences. Data is freely available upon request. Please submit your request via [Google Form](https://goo.gl/forms/JMki8iD9OSvUAVWv1).
 * [Precomputed image features](/data): ResNext-101
 * [COCO-CN-Results-Viewer](https://github.com/evanmiltenburg/COCO-CN-Results-Viewer): A lightweight tool to inspect the results of different image captioning systems on the COCO-CN test set, developed by [Emiel van Miltenburg](https://emielvanmiltenburg.nl/) at the Tilburg University.
 * [NUS-WIDE100](data/nuswide100): An extra test set.
 + 2018-12-16: Code for cross-lingual [image tagging](code/image-tagging-flickr8kcn) and [captioning](code/coco-cn_caption) released.
 + 2018-12-20: Code for [cross-lingual image retrieval](code/image-retrieval) and [our image annotation system](code/image-annotation-system) released.
 + 2019-01-13: The COCO-CN paper accepted as a regular paper by the T-MM journal.
++ 2021-02-03: Release of [new annotations](data/coco-cn_ext.icap2020.txt) (4,573 images and 4,712 manually written sentences) collected via our [iCap interactive image captioning](https://dx.doi.org/10.1145/3372278.3390697) System. The images have no overlap with the prevously released dataset.  
 
 ## Citation
 
